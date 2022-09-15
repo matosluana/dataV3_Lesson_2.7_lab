@@ -37,6 +37,9 @@ GROUP by title;
 
 -- 7 Using the tables payment and customer and the JOIN command, list the total paid by each customer.
 --   List the customers alphabetically by last name.
+SELECT customer.customer_id, first_name, last_name, SUM(amount) AS "total_payments" FROM sakila.customer
+JOIN sakila.payment ON payment.customer_id = customer.customer_id
+GROUP BY customer_id
+ORDER BY last_name ASC;
 
 
--- 8 List number of films per category.
